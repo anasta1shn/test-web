@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Моя страница</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+      transition: background-color 0.5s;
+    }
+    h1 {
+      font-size: 36px;
+    }
+    h2 {
+      font-size: 24px;
+      color: gray;
+    }
+    #colorButton {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Заголовок страницы</h1>
+  <h2>Это подзаголовок</h2>
+  
+  <button id="colorButton" onclick="changeColor()">Изменить стиль</button>
+
+  <script>
+    const styles = [
+      { color: "#3498db", text: "Синий стиль", background: "#ecf0f1" },
+      { color: "#e74c3c", text: "Красный стиль", background: "#fdecea" },
+      { color: "#2ecc71", text: "Зелёный стиль", background: "#e8f5e9" },
+      { color: "#f1c40f", text: "Жёлтый стиль", background: "#fff9e6" }
+    ];
+
+    function changeColor() {
+      const button = document.getElementById("colorButton");
+      let newStyle;
+      do {
+        newStyle = styles[Math.floor(Math.random() * styles.length)];
+      } while (button.style.backgroundColor === newStyle.color);
+
+      button.style.backgroundColor = newStyle.color;
+      button.textContent = newStyle.text;
+      document.body.style.backgroundColor = newStyle.background;
+    }
+  </script>
+
+</body>
+</html>
